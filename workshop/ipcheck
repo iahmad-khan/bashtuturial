@@ -1,0 +1,11 @@
+#usage: ipcheck
+
+print "Enter ip address:"
+read ip_address
+print ${ip_address}
+if print ${ip_address} | grep '^[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}$' > /dev/null
+then
+	print "Correct format"
+else
+	print "Incorrect format"
+fi

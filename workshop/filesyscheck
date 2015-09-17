@@ -1,0 +1,20 @@
+#!/usr/bin/ksh
+star()
+{
+print "****************************************\a"
+}
+MAX=80
+df -k | awk '{ print $4, $7 }' |
+while read USED FILESYS
+do
+	if [[ $USED != '%Used' ]]
+	then
+		USED=`print ${USED} | sed s/%//`
+		if [[ ${USED} -ge $MAX ]]
+		then
+			star
+			print "Filesystem ${FILESYS} needs checking!"
+			star
+		fi
+	fi
+done

@@ -1,0 +1,17 @@
+# This is add2 with more
+function add3
+{ 
+	let sum=$1+$2 
+	print function name = $0 
+	print testvar inside = $testvar 
+	typeset testvar 
+	testvar=2 
+	print testvar inside = $testvar 
+	return 2 			# then exit 2, then remove 
+}
+testvar=1 
+print testvar outside = $testvar 
+add3 $1 $2 
+print return code = $?
+print sum outside = $sum
+print testvar outside = $testvar 

@@ -1,0 +1,27 @@
+# And finally ... (The final script should look like this) 
+function add4
+{ 
+# 1) new line here 
+trap "print function received INT ; exit" INT  
+
+
+	print function name = $0 
+	print testvar inside = $testvar 
+	typeset testvar 
+	testvar=2 
+	print testvar inside = $testvar 
+	let sum=$1+$2 
+	return 2
+}
+testvar=1 
+print testvar outside = $testvar 
+# 2) new line here 
+trap "print program received INT ; exit" INT   
+# 3) replace line above with 
+# trap "" INT 
+sleep 9
+add4 $1 $2 
+print return code = $?
+print sum outside = $sum
+print return code = $? 
+print testvar outside = $testvar 

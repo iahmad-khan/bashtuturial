@@ -1,0 +1,11 @@
+# usage:  usercount
+
+for username in $(who | tr -s " " | cut -f1 -d" ")
+do
+	varcount=$(who| grep -c $username)
+	if [[ $varcount -gt 1 ]]
+	then
+		echo $username is logged on $varcount times > $HOME/usercountlog
+	fi
+done
+uniq $HOME/usercountlog

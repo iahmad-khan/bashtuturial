@@ -1,0 +1,20 @@
+# This is the function in the optional exercises.
+function add_bet 
+{ 
+	integer n=0 total 
+	while [[ "${chars[n]}" != "$1" ]] 
+	do 
+		n=$n+1 
+	done 
+	integer m=0 
+	while [[ "${chars[m]}" != "$2" ]] 
+	do 
+		m=$m+1 
+	done 
+	total=m+n 
+	if [[ $total -gt 26 ]] 
+	then 
+		total=$total-26 
+	fi 
+	print ${chars[$total]} 
+} 
